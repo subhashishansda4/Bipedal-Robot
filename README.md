@@ -1,6 +1,9 @@
 ## Description
 **Modeled and Simulated a Bipedal Robot** using tools like *Fusion 360*, *MATLAB* and a little bit of *Mathematics*
 
+Indepth report can be found here:\
+[Report](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/Modelling%20and%20Simulation%20of%20Bipedal%20Robot.pdf)
+
 ## Introduction
 Bipedal Robots are robots which are capable of doing tasks like walking, strafing and other leg movements much like humans
 
@@ -22,6 +25,19 @@ Associated Companies:
 * To design robot parts and assemblies with the help of data collected
 * Yo stress simulate our parts and make sure everything is feasible
 
+## Renders
+![1](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/1.jpg)
+
+![2](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/2.jpg)
+
+![3](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/3.jpg)
+
+![4](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/4.jpg)
+
+![5](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/5.jpg)
+
+![6](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/6.jpg)
+
 ## Observations
 When robot is walking on the ground according to that the leg is divided into two portions:
 1. **Stable Leg**
@@ -42,9 +58,6 @@ The support polygon is the smallest polygon obtain by connecting all points of c
 **Dynamics of Manipulator**
 * Kinematics of a robot manipulator deals with the relation between position and orientation of the end effector and the joint variable of the manipulator without considering the mass of links or the forces/torque acting on the manipulator
 * Dynamics of a robot deals with the relation between position, velocity and acceleration of the robot's joints along with the force/torque at each joint to cause the motion
-
-Indepth report can be found here:\
-[Report](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/Modelling%20and%20Simulation%20of%20Bipedal%20Robot.pdf)
 
 ## Mechanics of Robot
 **Normal Robot containing solid blocks, rigid transformations and joint blocks**
