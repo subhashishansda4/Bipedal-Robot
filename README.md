@@ -53,12 +53,12 @@ The support polygon is the smallest polygon obtain by connecting all points of c
 
 ![2](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/work/2.png)
 
-1
+https://github.com/subhashishansda4/Bipedal-Robot/assets/84849423/621c58bd-ea97-4982-976f-8b1b435770bf
 
 **Setting conditions such as changing pitch value of hip join to half and decreasing damping to 1/10**\
 **Initialising conditions such as stiffness, damping, length, width, height, etc.**
 
-2
+https://github.com/subhashishansda4/Bipedal-Robot/assets/84849423/4d50f1ef-fc75-4f9b-952c-6c41843a5376
 
 ## LIPM
 **Linear Inverted Pendulum Model** is a simple and powerful model assumptions:
@@ -70,16 +70,16 @@ The support polygon is the smallest polygon obtain by connecting all points of c
 
 ![3](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/work/3.png)
 
-3
+https://github.com/subhashishansda4/Bipedal-Robot/assets/84849423/36b0625f-da5c-491d-bd35-7a877fe2234c
 
 **Setting parameters like height, swing height, step length, velocity, etc.**
 
-4
+https://github.com/subhashishansda4/Bipedal-Robot/assets/84849423/9dc4366c-f1eb-4b45-8c15-b6381ca798a8
 
 **Finding joint angles from feet trajectories using inverse kinematics**\
 **Inverse rotations for joint angles are done through computing analytical solution**
 
-5
+https://github.com/subhashishansda4/Bipedal-Robot/assets/84849423/2c7db9cf-f1ec-4c1e-aca2-6cdfe3e6c2bf
 
 ## Simulation
 **Joint angles of legs are feed as input in our model**
@@ -90,7 +90,7 @@ The support polygon is the smallest polygon obtain by connecting all points of c
 
 **Simulation through simplified motion actuation approach**
 
-6
+https://github.com/subhashishansda4/Bipedal-Robot/assets/84849423/4aa6cd02-073a-4f2e-903c-db87181537a0
 
 ## Graphs
 **We used motion actuation for acutating robot joints cause it is easier and faster to simulate and does not offer much difference from force/torque actuation approach**
