@@ -1,5 +1,6 @@
 ## Description
-**Modeled and Simulated a Bipedal Robot** using tools like *Fusion 360*, *MATLAB* and a little bit of *Mathematics*
+**Modeled and Simulated a Bipedal Robot** using tools like *Fusion 360*, *MATLAB* and a little bit of *Mathematics*\
+You can find the renders at the last of this README
 
 Indepth report can be found here:\
 [Report](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/Modelling%20and%20Simulation%20of%20Bipedal%20Robot.pdf)
