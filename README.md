@@ -1,138 +1,98 @@
 ## Description
-Building a **QSAR** model to predict **pIC50** values of different biological compounds from their **pubChem fingerprints**\
-Inspired by John S. Delaney & Pat Walters (article/research paper) dataset comprising of collection of compounds along with their molecular solubilities\
-\
-source - \
-[original research paper](https://pubs.acs.org/doi/10.1021/ci034243x) \
-[published article](https://www.tandfonline.com/doi/full/10.1517/17460441.2015.1016497)
- 
-## Data Processing
-### ChEMBL database
-Retrieving and downloading biological activity data from ChEMBL database to construct machine learning models or QSARs. These data contains curated bioactivity data of more than 2 million compounds. It is compiled from more than 76,000 documents, 1.2 million essays and the data spans 13,000 targets, 1800 cells and 33,000 indications
+**Modeled and Simulated a Bipedal Robot** using tools like *Fusion 360*, *MATLAB* and a little bit of *Mathematics*
 
-### Acetylcholinesterase
-Cholinergic enzyme primarily found at postsynaptic neuromuscular junctions, especially in muscles and nerves \
-Lack of acetylcholinesterase contributes to neuromuscular junction dysfunction in Type 1 diabetic neuropathy \
-\
-Search **"acetylcholinesterase"** in all targets :  referring to target proteins and target organisms \
-Selected Target: CHEMBL220 \
-standard_type: IC50 : inhibitory concentration @50% of target protein \
-standard_value: potency of the drug \
-Biologically, these compounds will come into contact with the protein/organism and induce a modulotory activity towards it {either to activate or to inhibit}
+## Introduction
+Bipedal Robots are robots which are capable of doing tasks like walking, strafing and other leg movements much like humans
 
-### Activity Classification
-* active compound : IC50 < 1000 nM
-* inactive compound : IC50 > 10000 nM
-* intermediate compound : 1000 < IC50 < 10000 
+Some of the these types of robots are:
+* Digit
+* Atlas
+* HUBO (KHR-3)
 
-## EDA
-### Lipinski Descriptors
-**rdkit** allows us to compute molecular decriptors for the compounds in the dataset that we have compiled \
-**Christopher Lipinski**, a scientist at Pfizer came up with a set of rule-of-five for evaluating the 'relative druglikeness of the compound' of compounds based on the key pharmaceutical kinetic properties:
-* Absorption
-* Distribution
-* Metabolism
-* Excretion
+Associated Companies:
+* Agility Robotics
+* Boston Dynamics
+* Houston Mechatronics
+* KAIST (Korea Advanced Institute of Science and Technology)
 
-Lipinski analyzed all orally active FDA-approved drugs in the formulation whether it can be absorbed into the body, distributed to the proper tissue/organs and become metabolised. Following 4 descriptors that was used for his analysis has corresponding values in multiples of 5:
-* Molecular Weight < 500 Dalton
-* Octanol-Water partition coefficient (LogP) < 5
-* Hydrogen bond donors < 5
-* Hydrogen bond acceptors < 10
+## Objectives
+* To collect data from various research projects based on their experimental results
+* To simulate joints of our model in MATLAB along with necessary conditions like damping and stiffness coefficients
+* To design suitable model and control system if necessary
+* To design robot parts and assemblies with the help of data collected
+* Yo stress simulate our parts and make sure everything is feasible
 
-#### Calculating Descriptors
-Converting standard_value from IC50 to pIC50 to allow IC50 to be more uniformly distributed. We will convert the IC50 values to the negative logarithmic scale which is essentially -log10. Applying value normalization because values greater than negative logarithmic of 100,000,000 will become negative
+## Observations
+When robot is walking on the ground according to that the leg is divided into two portions:
+1. **Stable Leg**
+2. **Swing Leg**
 
-### Chemical Space Analysis
-**Jose Medina Franco** (author) \
-"Each chemical compound can be thought of as stars, i.e. active molecules would be compared to as constellations" \
-\
-He developed an approach termed as "constellation plot" whereby one can perform chemcial space analysis and create constellation plot where active molecule have correspondingly have larger size compared to less active molecule \
-\
-Frequency plot of 2 bioactivity classes comparing the inactive and active molecules
-![freq_plot](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/plot_bioactivity_class.jpg) \
-\
-Scatter plot of molecular weight (MW) v/s molecular solubilityt (LogP) \
-It can be seen that the 2 bioactivity classes are spanning similar chemical spaces as evident by this \
-![scatter_plot](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/plot_MW_vs_logP.jpg)
+A single cycle of walking can be divided into two phase:
+1. **Single support phase**
+2. **Double support phase**
 
-### Mann Whitney Analysis
-U-Test used to test whether two samples are likely to derive from the same population \
-Box plots for pIC50, MW, LogP, NumHDonors, NumHAcceptors \
-pIC50 \
-![pIC50](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/plot_ic50.jpg) \
-\
-MW \
-![MW](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/plot_MW.jpg) \
-\
-LogP \
-![LogP](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/plot_LogP.jpg) \
-\
-NumHDonors \
-![NumHDonors](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/plot_NumHDonors.jpg) \
-\
-NumHAcceptors \
-![NumHAcceptors](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/NumHAcceptors.jpg) \
-\
-pIC50 values of actives and inactives displayed statistically significant differenece which is to be expected since threshold values are (pIC50 > 6 for active AND pIC50 < 5 for inactive) \
-\
-Out of the 4 Lipinski descriptors only NumHDonors exhibited no difference between the actives and inactives while the others showed significant difference between the two
+In order to remain stable, the centre of gravity must fall under its polygon of support\
+The support polygon is the smallest polygon obtain by connecting all points of contact of robot wih the walking surface
 
-## Dataset Preparation
-### Lipinski Descriptors v/s PubChem Fingerprints
-| Lipinski Descriptors | PubChem Fingerprints |
-| :-------------------------- |:--------------------------- |
-| provides set of simple molecular descriptors of molecule | describing local features of molecules |
-| 4 descriptors responsible for drug-like properties | each molecule will be described by the unique building blocks of molecule |
-| describes global features of molecules such as molecular size, solubility, number of H bond donors and acceptors | molecules provides most potency towards target protein that it wants to interact while also being safe and non-toxic |
+**Trajectory Planning**
+* Teach initial and final points, intermediate path is not critical and is computed by the controller
+* Continuous path motion
+* Points generaly taught by manual lead through with high speed automatic sampling
 
-Using **PaDEL Descriptors** to calculate molecular descriptors and fingerprints\
-**padel.sh**:
-- jar - for using PaDEL-Descriptor.jar
-- removesalt - removing sodium & chloride which are in the chemical structure / small organic assets from chemical structure
-- fingerprints - tells the program that we gonna compute the molecular fingerprints {fingerprint_type : PubChem}
+**Dynamics of Manipulator**
+* Kinematics of a robot manipulator deals with the relation between position and orientation of the end effector and the joint variable of the manipulator without considering the mass of links or the forces/torque acting on the manipulator
+* Dynamics of a robot deals with the relation between position, velocity and acceleration of the robot's joints along with the force/torque at each joint to cause the motion
 
-## Machine Learning
-Which funtional group or fingerprints are essential for designing a good drug so that the target variable that we are using for our prediction i.e. pIC50 can be minimum while also being active \
-Removing **Low Variance Features** because lower variance features are constant and thus, it cannot be used for finding any interesting patterns and can be removed from the dataset
+Indepth report can be found here:\
+[Report](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/Modelling%20and%20Simulation%20of%20Bipedal%20Robot.pdf)
 
-### Principal Component Analysis
-Simplifying the complexity of our high-dimensional data while retaining trends and patterns using PCA \
-Used only 40 features for machine learning models since it describes 80% of variance \
-![PCA](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/PCA.jpg)
+## Mechanics of Robot
+**Normal Robot containing solid blocks, rigid transformations and joint blocks**
 
-## Model Building
-Multiple Linear Regression \
-![MLR](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/Multiple%20Linear%20Regression.jpg) \
-\
-Decision Tree Regression \
-![DTR](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/Decision%20Tree%20Regression.jpg) \
-\
-Random Forest Regression \
-![RFR](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/Random%20Forest%20Regression.jpg) \
-\
-Ridge Regression \
-![RR](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/Ridge%20Regression.jpg) \
-\
-Bayesian Regression \
-![BR](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/Bayesian%20Regression.jpg) \
-\
-K-Nearest Neighbour \
-![KNN](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/K-Nearest%20Neighbour.jpg) \
-\
-Support Vector Regression \
-![SVR](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/Support%20Vector%20Regression.jpg) \
-\
-XGBoost Regression \
-![XGB](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/XGBoost%20Regression.jpg) \
+![1](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/work/1.png)
 
-## Conclusion
-\
-![error](https://github.com/subhashishansda4/Bio-Informatics/blob/main/assets/plots/error_values.jpg)
+![2](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/work/2.png)
 
+1
 
+**Setting conditions such as changing pitch value of hip join to half and decreasing damping to 1/10**\
+**Initialising conditions such as stiffness, damping, length, width, height, etc.**
 
-    
+2
 
+## LIPM
+**Linear Inverted Pendulum Model** is a simple and powerful model assumptions:
+* Robot has constant height while walking
+* Angular momentum around CoM is very small
 
+**Finding initial conditions and time to create symmetric piece of trajectory, will be sufficient because we are simulating our model to walk in a straight line**\
+**Mirroring the same for the other leg**
 
+![3](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/work/3.png)
+
+3
+
+**Setting parameters like height, swing height, step length, velocity, etc.**
+
+4
+
+**Finding joint angles from feet trajectories using inverse kinematics**\
+**Inverse rotations for joint angles are done through computing analytical solution**
+
+5
+
+## Simulation
+**Joint angles of legs are feed as input in our model**
+
+![4](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/work/4.png)
+
+![5](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/work/5.png)
+
+**Simulation through simplified motion actuation approach**
+
+6
+
+## Graphs
+**We used motion actuation for acutating robot joints cause it is easier and faster to simulate and does not offer much difference from force/torque actuation approach**
+
+![6](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/work/6.png)
