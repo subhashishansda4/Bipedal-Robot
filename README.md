@@ -25,19 +25,6 @@ Associated Companies:
 * To design robot parts and assemblies with the help of data collected
 * Yo stress simulate our parts and make sure everything is feasible
 
-## Renders
-![1](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/1.jpg)
-
-![2](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/2.jpg)
-
-![3](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/3.jpg)
-
-![4](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/4.jpg)
-
-![5](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/5.jpg)
-
-![6](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/6.jpg)
-
 ## Observations
 When robot is walking on the ground according to that the leg is divided into two portions:
 1. **Stable Leg**
@@ -109,3 +96,16 @@ The support polygon is the smallest polygon obtain by connecting all points of c
 **We used motion actuation for acutating robot joints cause it is easier and faster to simulate and does not offer much difference from force/torque actuation approach**
 
 ![6](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/work/6.png)
+
+## Renders
+![1](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/1.jpg)
+
+![2](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/2.jpg)
+
+![3](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/3.jpg)
+
+![4](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/4.jpg)
+
+![5](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/5.jpg)
+
+![6](https://github.com/subhashishansda4/Bipedal-Robot/blob/main/renders/6.jpg)
